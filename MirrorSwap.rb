@@ -7,9 +7,9 @@ PCBWidth = 76.0
 
 CSV.foreach(path, headers: true) do |row|
   row = row.to_hash
-  xCoord = (row["DeltX"].to_i).abs
+  xCoord = (row["DeltX"].to_f).abs
   xCoord = PCBWidth - xCoord
-  row["DeltX"] = xCoord
+  row["DeltX"] = xCoord.round(2)
   arrayOfAllElements << row
 end
 
